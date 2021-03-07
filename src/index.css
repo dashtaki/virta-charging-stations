@@ -139,6 +139,10 @@ h1 {
 
 }
 
+.station-detail__wrapper .station-detail__name {
+    font-size: 2.5rem;
+}
+
 .station-detail__wrapper .station-detail .station-detail__label {
     color: #5f5f5f;
     margin-bottom: 1.5rem;
@@ -161,4 +165,12 @@ h1 {
     background-color: white;
     margin-top: .5rem;
     border-radius: 0.375rem;
+    padding-top: 4px;
+    position: relative;
+}
+
+.map__no-position-provided {
+    text-align: center;
+    padding: 5rem 0;
+    font-weight: 500;
 }

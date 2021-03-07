@@ -1,15 +1,29 @@
-import {useLocation} from 'react-router-dom';
-import StationAvailability from "../stations/station-availability";
+import {useHistory, useLocation} from 'react-router-dom';
+import StationAvailability from '../stations/station-availability';
+import Position from './position';
+
 
 const Station = () => {
     const location = useLocation();
+    const history = useHistory();
     const {name, available, lastconnect, position, connected} = location.state.station;
+    const lang = parseFloat(position.split(',')[0]);
+    const lat = parseFloat(position.split(',')[1]);
+
+    const formatDate = (date) => {
+        return new Date(date).toLocaleString();
+    }
+
+    const backToList = () => {
+        history.goBack();
+    }
 
     return (
         <div className='station-detail__wrapper'>
             <div className='station-detail__header'>
-                <img src="./backButton_icon.png" className='back-button' alt="back to stations list"/>
-                <h1>{name}</h1>
+                <img src="./backButton_icon.png" className='back-button' alt="back to stations list"
+                     onClick={backToList}/>
+                <h1 className='station-detail__name'>{name}</h1>
             </div>
             <div className='station-detail'>
                 <div>
@@ -24,14 +38,10 @@ const Station = () => {
                 </div>
             </div>
             <div className='station-detail__map'>
-                map
+                <Position lng={lang} lat={lat}/>
             </div>
         </div>
     )
-}
-
-const formatDate = (date) => {
-    return new Date(date).toLocaleString();
 }
 
 export default Station;
