@@ -9,8 +9,9 @@ const Station = () => {
     const {lang, lat} = retrieveGeoLocation();
 
     function retrieveGeoLocation() {
-        const lang = parseFloat(position.split(',')[0]);
-        const lat = parseFloat(position.split(',')[1]);
+        const geoLocations = position.split(',');
+        const lang = geoLocations[0];
+        const lat = geoLocations[1];
         return {lang, lat};
     }
 
@@ -29,6 +30,7 @@ const Station = () => {
                      onClick={backToList}/>
                 <h1 className='station-detail__name'>{name}</h1>
             </div>
+
             <div className='station-detail'>
                 <div>
                     <span className='station-detail__label'>Availability</span>
@@ -41,6 +43,7 @@ const Station = () => {
                     <span className='station-detail__value'>{connected ? 'Yes' : 'No'}</span>
                 </div>
             </div>
+
             <div className='station-detail__map'>
                 <Position lng={lang} lat={lat}/>
             </div>
