@@ -53,3 +53,22 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+# Code scaffolding
+
+
+### BEM
+
+Use [BEM](http://getbem.com/introduction/) as CSS naming methodology and naming convention for writing cleaner and more readable CSS classes.
+BEM also aims to write independent CSS blocks in order to reuse them later in your project.
+That’s what I preferred to don’t use Bootstrap as a CSS framework and one more reason was it is a small project that it can be handled without any CSS framework.
+
+### Spinner
+
+I have created a component as Spinner for showing a loader while fetching data from server, in this case .json file,
+Most of the time fetching data from .json file is fast in terms of response, then I tried to simulate latency about fetching data to show the spinner.
+For simulating you just need to:
+
+1. Got to `src/stations/stationslist.js`
+2. Set `simulateLatency` in line:11 as `true`
+3. Reload page
