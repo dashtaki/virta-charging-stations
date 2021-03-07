@@ -1,5 +1,5 @@
 import {useHistory, useLocation} from 'react-router-dom';
-import StationAvailability from '../stations/station-availability';
+import StationAvailability from '../shared/station-availability';
 import Position from './position';
 
 const Station = () => {

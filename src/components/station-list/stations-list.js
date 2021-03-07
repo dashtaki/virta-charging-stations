@@ -1,9 +1,9 @@
 import {useEffect, useState} from 'react';
 import StationName from './station-name';
-import StationAvailability from './station-availability';
-import spinner from './spinner';
+import StationAvailability from '../shared/station-availability';
+import spinner from '../shared/spinner';
 import {useHistory} from 'react-router-dom';
-import {getAllTransactions} from '../API/api';
+import {getAllTransactions} from "../../API/api";
 
 const StationsList = () => {
     const [stations, setStations] = useState([]);

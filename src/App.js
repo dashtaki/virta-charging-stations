@@ -1,7 +1,12 @@
-import StationsList from './stations/stations-list';
+import StationsList from './components/station-list/stations-list';
 import {Route, Switch} from 'react-router-dom'
-import Station from './components/satation';
-import {BrowserRouter as Router} from "react-router-dom";
+import Station from './components/station/satation';
+import {BrowserRouter as Router} from 'react-router-dom';
+
+//TODO: remove extra file
+//TODO: file structure
+//TODO: test
+//TODO: update spinner section in readme if file structure changed
 
 function App() {
 
