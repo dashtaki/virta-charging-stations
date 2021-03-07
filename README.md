@@ -72,3 +72,12 @@ For simulating you just need to:
 1. Got to `src/stations/stationslist.js`
 2. Set `simulateLatency` in line:11 as `true`
 3. Reload page
+
+### SOLID
+Regarding the `S` for `SOLID` I just tried to keep each function(component as a funstion as well) to
+just responsible for a single task. That's why I just created a separate component for every part
+and also keep the simple stupid ;)
+
+### Error Handling
+In case of multiple API endpoint I can provide a global error handling. As you can see I just throw the error in case of
+error in fetching data from .json file.

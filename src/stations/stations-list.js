@@ -16,6 +16,9 @@ const StationsList = () => {
                 setTimeout(() => {
                     setStations(stationsResponse)
                 }, simulateLatency ? 2500 : 0);
+            })
+            .catch((error) => {
+                throw error;
             });
     }, [simulateLatency]);
 
