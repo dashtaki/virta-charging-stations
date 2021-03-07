@@ -2,13 +2,17 @@ import {useHistory, useLocation} from 'react-router-dom';
 import StationAvailability from '../stations/station-availability';
 import Position from './position';
 
-
 const Station = () => {
     const location = useLocation();
     const history = useHistory();
     const {name, available, lastconnect, position, connected} = location.state.station;
-    const lang = parseFloat(position.split(',')[0]);
-    const lat = parseFloat(position.split(',')[1]);
+    const {lang, lat} = retrieveGeoLocation();
+
+    function retrieveGeoLocation() {
+        const lang = parseFloat(position.split(',')[0]);
+        const lat = parseFloat(position.split(',')[1]);
+        return {lang, lat};
+    }
 
     const formatDate = (date) => {
         return new Date(date).toLocaleString();

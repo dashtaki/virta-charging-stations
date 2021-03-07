@@ -1,33 +1,27 @@
-import {useState, useEffect} from 'react';
-import axios from 'axios';
+import {useEffect, useState} from 'react';
 import StationName from './station-name';
 import StationAvailability from './station-availability';
 import spinner from './spinner';
 import {useHistory} from 'react-router-dom';
+import {getAllTransactions} from '../API/api';
 
-// import 'stations-list.css';
-
-function StationsList() {
+const StationsList = () => {
     const [stations, setStations] = useState([]);
     const history = useHistory();
-    // TODO: simulate latency
-    // TODO: CSS
-    // TODO: notfound page
+    const simulateLatency = false;
 
     useEffect(() => {
-        // TODO: rename
-        getAll()
-            .then(t => {
-                // setTimeout(() => {
-                setStations(t)
-                // }, 3300);
+        getAllTransactions()
+            .then(stationsResponse => {
+                setTimeout(() => {
+                    setStations(stationsResponse)
+                }, simulateLatency ? 2500 : 0);
             });
-    }, []);
+    }, [simulateLatency]);
 
-    function showStationDetail(station) {
+    const showStationDetail = (station) => {
         history.push('/station', {station});
     }
-
 
     const getTransactionsList = () => {
         return <>
@@ -54,13 +48,6 @@ function StationsList() {
                 : spinner()
         }
     </>
-}
-
-// TODO: error handling
-// TODO: move to another file
-const getAll = async () => {
-    const response = await axios.get(`stations-data.json`);
-    return response.data
 }
 
 export default StationsList;
