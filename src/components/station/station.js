@@ -10,8 +10,8 @@ const Station = () => {
 
     function retrieveGeoLocation() {
         const geoLocations = position.split(',');
-        const lang = geoLocations[0];
-        const lat = geoLocations[1];
+        const lang = parseFloat(geoLocations[0]);
+        const lat = parseFloat(geoLocations[1]);
         return {lang, lat};
     }
 
