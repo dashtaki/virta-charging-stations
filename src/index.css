@@ -14,14 +14,13 @@ body {
     margin-top: 3rem;
 }
 
-
-/* StationsList */
+/* ============================
+        StationsList
+==============================*/
 .station-list__wrapper {
     width: 40%;
-    /*margin-top: 3rem;*/
 }
 
-/*.station-list__wrapper */
 h1 {
     font-size: 3.5rem;
 }
@@ -45,8 +44,9 @@ h1 {
     font-weight: bold;
 }
 
-
-/*   Station  Availability    */
+/* ============================
+       StationAvailability
+==============================*/
 .station-availability {
     display: flex;
     align-items: center;
@@ -69,8 +69,9 @@ h1 {
     margin: 0;
 }
 
-
-/*     Spinner     */
+/* ============================
+            Spinner
+==============================*/
 #spinner {
     animation: animate 1.5s linear infinite;
     clip: rect(0, 80px, 80px, 40px);
@@ -114,8 +115,9 @@ h1 {
     }
 }
 
-
-/*    station detail    */
+/* ============================
+            StationDetail
+==============================*/
 .station-detail__wrapper {
     width: 50%;
 }
@@ -136,7 +138,6 @@ h1 {
     background-color: white;
     padding: 1rem;
     border-radius: 0.375rem;
-
 }
 
 .station-detail__wrapper .station-detail__name {
@@ -160,7 +161,9 @@ h1 {
     align-items: center;
 }
 
-/*      map       */
+/* ============================
+            Map
+==============================*/
 .station-detail__map {
     background-color: white;
     margin-top: .5rem;

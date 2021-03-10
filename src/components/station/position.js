@@ -10,7 +10,7 @@ const Position = (props) => {
     }
 
     return (
-        !(lat && lng)
+        !(lat || lng)
             ? <div className='map__no-position-provided'>There is no position provided!</div>
             : <Map defaultCenter={[lng, lat]} defaultZoom={16} height={400} provider={mapTilerProvider}>
                 <Marker anchor={[lng, lat]} payload={1}/>

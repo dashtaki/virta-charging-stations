@@ -7,6 +7,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 //TODO: file structure
 //TODO: test
 //TODO: update spinner section in readme if file structure changed
+//TODO: prettier
 
 function App() {
 
