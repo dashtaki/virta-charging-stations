@@ -3,14 +3,12 @@ import {Route, Switch} from 'react-router-dom'
 import Station from './components/station/station';
 import {BrowserRouter as Router} from 'react-router-dom';
 
-//TODO: remove extra file
-//TODO: file structure
 //TODO: test
 //TODO: update spinner section in readme if file structure changed
 //TODO: prettier
+//TODO: bookmarkable
 
 function App() {
-
     return <div className='main__wrapper'>
         <Router>
             <Switch>
