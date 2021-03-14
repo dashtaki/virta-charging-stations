@@ -29,10 +29,16 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.\
 Shut it down manually with `Ctrl-C`.
 
-### `npm test`
+### `npm cypress:open`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches E2E test runner in the interactive watch mode.\
+For running test you have to:
+1. Run `npm start`
+2. Run `npm run cypress:open`
+3. You can see test cases in Cypress window
+
+I Also have written some unit test for some functions, like in `/src/api/api.js` and
+`/src/herpers/geo-location.js`w
 
 ### `npm run build`
 
@@ -81,3 +87,10 @@ and also keep the simple stupid ;)
 ### Error Handling
 In case of multiple API endpoint I can provide a global error handling. As you can see I just throw the error in case of
 error in fetching data from .json file.
+
+### Browse-ability and bookmark-ability
+User can see station detail from the main screen(`/`) or even you can directly
+use specific station id in address bar as param, for instance for station id **101** it should be 
+like `/station/101`.
+
+
