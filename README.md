@@ -51,6 +51,10 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run pretty`
+
+Run **prettier** to run make code prettier :)
+
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
@@ -79,6 +83,13 @@ For simulating you just need to:
 2. Set `simulateLatency` in line:11 as `true`
 3. Reload page
 
+### Prettier
+
+Using [Prettier](https://prettier.io/) for opinionated code formatter.
+It will take care of formatting for you.
+Prettier creates an abstract syntax tree from your code and uses it to write new code formatted according to a set of rules.
+In addition, I check pretty before every commit by add a pre-commit hook. For more detail check package.json, husky section.
+
 ### SOLID
 
 Regarding the `S` for `SOLID` I just tried to keep each function(component as a funstion as well) to
@@ -95,3 +106,9 @@ error in fetching data from .json file.
 User can see station detail from the main screen(`/`) or even you can directly
 use specific station id in address bar as param, for instance for station id **101** it should be
 like `/station/101`.
+
+### Styled-Components
+
+There are tons and tons of ways to use styling in React, but one way that looks to be the best practice is to make components within
+your component to style directly. These styled components affect only
+that specific component in which they are rendered, and nothing else. Components in React work the best when they are small, focused, and reusable.
