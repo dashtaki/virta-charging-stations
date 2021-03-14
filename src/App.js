@@ -3,7 +3,6 @@ import { StyledStationsList } from './components/station-list/styled-stations-li
 import { StyledStation } from './components/station/styled-station'
 
 //TODO: update spinner section in readme if file structure changed
-//TODO: prettier
 
 function App() {
     return (
