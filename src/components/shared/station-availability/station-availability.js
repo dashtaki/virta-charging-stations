@@ -1,14 +1,18 @@
-const StationAvailability = ({className, ...props}) => {
-    const {availability} = props;
-    const src = availability ? '../available_icon.png' : '../offline_icon.png';
-    const availabilityText = availability ? 'Available' : 'Offline';
+const StationAvailability = ({ className, ...props }) => {
+    const { availability } = props
+    const src = availability ? '../available_icon.png' : '../offline_icon.png'
+    const availabilityText = availability ? 'Available' : 'Offline'
 
-    return <span className={className}>
-                <img src={src}
-                     className='station-availability__icon'
-                     alt="station availability"/>
-                <p className='station-availability__text'>{availabilityText}</p>
-            </span>;
+    return (
+        <span className={className}>
+            <img
+                src={src}
+                className="station-availability__icon"
+                alt="station availability"
+            />
+            <p className="station-availability__text">{availabilityText}</p>
+        </span>
+    )
 }
 
-export default StationAvailability;
+export default StationAvailability

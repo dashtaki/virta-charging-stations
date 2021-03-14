@@ -1,48 +1,47 @@
-import styled from 'styled-components';
-import Spinner from './spinner';
+import styled from 'styled-components'
+import Spinner from './spinner'
 
 const StyledSpinner = styled(Spinner)`
-  animation: animate 1.5s linear infinite;
-  clip: rect(0, 80px, 80px, 40px);
-  height: 80px;
-  width: 80px;
-  position: absolute;
-  left: calc(50% - 40px);
-  top: calc(50% - 40px);
-
-
-  &:after {
-    animation: animate2 1.5s ease-in-out infinite;
+    animation: animate 1.5s linear infinite;
     clip: rect(0, 80px, 80px, 40px);
-    content: '';
-    border-radius: 50%;
     height: 80px;
     width: 80px;
     position: absolute;
-  }
+    left: calc(50% - 40px);
+    top: calc(50% - 40px);
 
-  @keyframes animate {
-    0% {
-      transform: rotate(0deg)
+    &:after {
+        animation: animate2 1.5s ease-in-out infinite;
+        clip: rect(0, 80px, 80px, 40px);
+        content: '';
+        border-radius: 50%;
+        height: 80px;
+        width: 80px;
+        position: absolute;
     }
-    100% {
-      transform: rotate(220deg)
-    }
-  }
 
-  @keyframes animate2 {
-    0% {
-      box-shadow: inset black 0 0 0 17px;
-      transform: rotate(-140deg);
+    @keyframes animate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(220deg);
+        }
     }
-    50% {
-      box-shadow: inset black 0 0 0 2px;
+
+    @keyframes animate2 {
+        0% {
+            box-shadow: inset black 0 0 0 17px;
+            transform: rotate(-140deg);
+        }
+        50% {
+            box-shadow: inset black 0 0 0 2px;
+        }
+        100% {
+            box-shadow: inset black 0 0 0 17px;
+            transform: rotate(140deg);
+        }
     }
-    100% {
-      box-shadow: inset black 0 0 0 17px;
-      transform: rotate(140deg);
-    }
-  }
 `
 
-export default StyledSpinner;
+export default StyledSpinner

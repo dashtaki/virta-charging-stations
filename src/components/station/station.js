@@ -1,45 +1,49 @@
-import {useEffect, useState} from 'react';
-import {getAllTransactions} from '../../API/api';
-import {retrieveGeoLocation} from '../../helpers/geo-location';
-import StyledNotExistStation from './not-exist-station/styled-not-exist-station';
-import StyledSpinner from '../shared/spinner/styled-spinner';
-import StyledStationAvailability from '../shared/station-availability/styled-station-avaialbility';
-import StyledPosition from './map/styled-position';
+import { useEffect, useState } from 'react'
+import { getAllTransactions } from '../../API/api'
+import { retrieveGeoLocation } from '../../helpers/geo-location'
+import StyledNotExistStation from './not-exist-station/styled-not-exist-station'
+import StyledSpinner from '../shared/spinner/styled-spinner'
+import StyledStationAvailability from '../shared/station-availability/styled-station-avaialbility'
+import StyledPosition from './map/styled-position'
 
-const Station = ({className, ...props}) => {
-    const [station, setStation] = useState({});
-    const {id} = props.match.params;
+const Station = ({ className, ...props }) => {
+    const [station, setStation] = useState({})
+    const { id } = props.match.params
 
     useEffect(() => {
         const fetchStationDetail = (setSerializedStation) => {
             getAllTransactions()
-                .then(stationsResponse => {
-                    const searchedStation = stationsResponse.find(station => station.station_ID === Number(id));
-                    searchedStation ? setSerializedStation(searchedStation) : setStation(null)
+                .then((stationsResponse) => {
+                    const searchedStation = stationsResponse.find(
+                        (station) => station.station_ID === Number(id)
+                    )
+                    searchedStation
+                        ? setSerializedStation(searchedStation)
+                        : setStation(null)
                 })
                 .catch((error) => {
                     throw error
-                });
+                })
         }
 
         const setSerializedStation = (passedStation) => {
-            const {position} = passedStation;
-            const {lng, lat} = retrieveGeoLocation(position);
-            const selectedStation = {...passedStation, lng, lat};
-            setStation(selectedStation);
+            const { position } = passedStation
+            const { lng, lat } = retrieveGeoLocation(position)
+            const selectedStation = { ...passedStation, lng, lat }
+            setStation(selectedStation)
         }
 
         if (props.location.state) {
-            const passedStation = props.location.state.station;
-            setSerializedStation(passedStation);
-            return;
+            const passedStation = props.location.state.station
+            setSerializedStation(passedStation)
+            return
         }
 
-        fetchStationDetail(setSerializedStation);
+        fetchStationDetail(setSerializedStation)
     }, [])
 
     const formatDate = (date) => {
-        return new Date(date).toLocaleString();
+        return new Date(date).toLocaleString()
     }
 
     const backToList = () => {
@@ -47,52 +51,65 @@ const Station = ({className, ...props}) => {
          * Use 'push' instead of go back to work properly
          * even when you open a specific station in address bar directly
          */
-        props.history.push('/');
+        props.history.push('/')
     }
 
     const renderContent = () => {
         if (!station) {
-            return <StyledNotExistStation/>
+            return <StyledNotExistStation />
         }
 
         if (station === {}) {
-            return <StyledSpinner/>
+            return <StyledSpinner />
         }
 
         if (station !== {}) {
-            return <div className={className}>
-                <div className='station-detail__header'>
-                    <img src="../backButton_icon.png" className='back-button' alt="back to stations list"
-                         onClick={backToList}/>
-                    <h1 className='station-detail__name'>{station.name}</h1>
-                </div>
-
-                <div className='station-detail'>
-                    <div>
-                        <span className='station-detail__label'>Availability</span>
-                        <span className='station-detail__label'>Last connect</span>
-                        <span className='station-detail__label'>Is connected</span>
+            return (
+                <div className={className}>
+                    <div className="station-detail__header">
+                        <img
+                            src="../backButton_icon.png"
+                            className="back-button"
+                            alt="back to stations list"
+                            onClick={backToList}
+                        />
+                        <h1 className="station-detail__name">{station.name}</h1>
                     </div>
-                    <div>
-                    <span className='station-detail__value'>
-                        <StyledStationAvailability availability={station.available}/></span>
-                        <span className='station-detail__value'>{formatDate(station.lastconnect)}</span>
-                        <span className='station-detail__value'>{station.connected ? 'Yes' : 'No'}</span>
+
+                    <div className="station-detail">
+                        <div>
+                            <span className="station-detail__label">
+                                Availability
+                            </span>
+                            <span className="station-detail__label">
+                                Last connect
+                            </span>
+                            <span className="station-detail__label">
+                                Is connected
+                            </span>
+                        </div>
+                        <div>
+                            <span className="station-detail__value">
+                                <StyledStationAvailability
+                                    availability={station.available}
+                                />
+                            </span>
+                            <span className="station-detail__value">
+                                {formatDate(station.lastconnect)}
+                            </span>
+                            <span className="station-detail__value">
+                                {station.connected ? 'Yes' : 'No'}
+                            </span>
+                        </div>
                     </div>
+
+                    <StyledPosition lng={station.lng} lat={station.lat} />
                 </div>
-
-
-                <StyledPosition lng={station.lng} lat={station.lat}/>
-            </div>
+            )
         }
     }
 
-    return <>
-        {
-            renderContent()
-        }
-    </>
-
+    return <>{renderContent()}</>
 }
 
-export default Station;
+export default Station
