@@ -72,7 +72,7 @@ describe('spinner', () => {
             cy.get('li').within(_ => {
                 cy.get('span:nth-child(2)').within(_ => {
                     cy.get('img')
-                        .should('have.attr', 'src', './offline_icon.png');
+                        .should('have.attr', 'src', '../offline_icon.png');
                 })
             })
         })
@@ -83,7 +83,7 @@ describe('spinner', () => {
             cy.get('li:nth-child(4)').within(_ => {
                 cy.get('span:nth-child(2)').within(_ => {
                     cy.get('img')
-                        .should('have.attr', 'src', './available_icon.png');
+                        .should('have.attr', 'src', '../available_icon.png');
                 })
             })
         })
@@ -104,7 +104,7 @@ describe('spinner', () => {
         cy.get('ul').within(_ => {
             cy.get('li:first-child').click();
             cy.location().should((location) => {
-                expect(location.pathname).to.eq('/station')
+                expect(location.pathname).to.eq('/station/101')
             });
         });
     });
