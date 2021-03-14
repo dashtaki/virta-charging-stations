@@ -1,4 +1,4 @@
-function StationName(props) {
+const StationName = (props) => {
     const {name} = props;
     return <span className='station-name'>{name}</span>;
 }
