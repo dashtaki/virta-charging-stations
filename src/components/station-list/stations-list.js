@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import StationName from './station-name';
 import StationAvailability from '../shared/station-availability';
-import spinner from '../shared/spinner';
+import Spinner from '../shared/spinner';
 import {useHistory} from 'react-router-dom';
 import {getAllTransactions} from '../../API/api';
 
@@ -23,7 +23,7 @@ const StationsList = () => {
     }, [simulateLatency]);
 
     const showStationDetail = (station) => {
-        history.push('/station', {station});
+        history.push(`/station/${station.station_ID}`, {station});
     }
 
     const getTransactionsList = () => {
@@ -48,7 +48,7 @@ const StationsList = () => {
                         {getTransactionsList()}
                     </ul>
                 </div>
-                : spinner()
+                : Spinner()
         }
     </>
 }

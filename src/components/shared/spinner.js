@@ -1,5 +1,5 @@
-const spinner = () => {
+const Spinner = () => {
     return <div id="spinner"></div>
 }
 
-export default spinner;
+export default Spinner;
