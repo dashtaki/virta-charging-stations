@@ -6,6 +6,6 @@ describe('API', () => {
         const spy = cy.spy(axios, 'get').as('anyArgs')
         getAllTransactions();
 
-        expect(spy).to.be.calledWith('stations-data.json')
+        expect(spy).to.be.calledWith('http://localhost:3000/stations-data.json')
     });
 });
