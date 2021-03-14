@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.8.1",
     "axios": "^0.21.1",
     "pigeon-maps": "^0.17.1",
+    "prettier": "^2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
@@ -20,7 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "pretty": "prettier --write 'src/**/*.{ts,tsx,js,jsx,css,html}'"
   },
   "eslintConfig": {
     "extends": [
