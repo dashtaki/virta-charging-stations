@@ -10,7 +10,8 @@ const StationAvailability = ({ className, ...props }) => {
                 className="station-availability__icon"
                 alt="station availability"
             />
-            <p className="station-availability__text">{availabilityText}</p>
+            <p
+                className="station-availability__text">{availabilityText}</p>
         </span>
     )
 }
