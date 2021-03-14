@@ -45,26 +45,8 @@ describe('spinner', () => {
             .should('contain', 'Your stations');
     });
 
-    it('should set "station-name" class name for station name', () => {
-        cy.get('ul').within(_ => {
-            cy.get('li').within(_ => {
-                cy.get('span')
-                    .should('have.class', 'station-name');
-            })
-        })
-    });
-
     it('should show all stations', () => {
         cy.get('ul').get('li').should('have.length', 27);
-    });
-
-    it('should set "station-availability" class name for station availability', () => {
-        cy.get('ul').within(_ => {
-            cy.get('li').within(_ => {
-                cy.get('span:nth-child(2)')
-                    .should('have.class', 'station-availability');
-            })
-        })
     });
 
     it('should put offline icon for offline station', () => {

@@ -1,9 +1,9 @@
 import {useEffect, useState} from 'react';
 import StationName from './station-name';
-import StationAvailability from '../shared/station-availability';
-import Spinner from '../shared/spinner';
 import {useHistory} from 'react-router-dom';
 import {getAllTransactions} from '../../API/api';
+import StyledSpinner from '../shared/spinner/styled-spinner';
+import StyledStationAvailability from '../shared/station-availability/styled-station-avaialbility';
 
 const StationsList = ({className}) => {
     const [stations, setStations] = useState([]);
@@ -33,7 +33,7 @@ const StationsList = ({className}) => {
                     <li key={station.station_ID.toString()}
                         onClick={() => showStationDetail(station)}>
                         <StationName name={station.name}/>
-                        <StationAvailability availability={station.available}/>
+                        <StyledStationAvailability availability={station.available}/>
                     </li>)
             }
         </>;
@@ -48,7 +48,7 @@ const StationsList = ({className}) => {
                         {getTransactionsList()}
                     </ul>
                 </div>
-                : Spinner()
+                : <StyledSpinner/>
         }
     </>
 }

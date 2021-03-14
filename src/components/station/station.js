@@ -1,12 +1,12 @@
-import StationAvailability from '../shared/station-availability';
-import Position from './position';
 import {useEffect, useState} from 'react';
 import {getAllTransactions} from '../../API/api';
-import Spinner from '../shared/spinner';
-import {Link} from "react-router-dom";
-import {retrieveGeoLocation} from "../../helpers/geo-location";
+import {retrieveGeoLocation} from '../../helpers/geo-location';
+import StyledNotExistStation from './not-exist-station/styled-not-exist-station';
+import StyledSpinner from "../shared/spinner/styled-spinner";
+import StyledStationAvailability from '../shared/station-availability/styled-station-avaialbility';
+import StyledMap from "./map/styled-map";
 
-const Station = (props) => {
+const Station = ({className, ...props}) => {
     const [station, setStation] = useState({});
     const {id} = props.match.params;
 
@@ -52,19 +52,15 @@ const Station = (props) => {
 
     const renderContent = () => {
         if (!station) {
-            return <div className="not-exist__wrapper">
-                <img src="../not-found-img.jpg" alt="station not found"/>
-                <h2 className="not-exist__title"> Opps! Station does not exist. See the stations list <Link
-                    to="/">Here!</Link></h2>
-            </div>
+            return <StyledNotExistStation/>
         }
 
         if (station === {}) {
-            return <Spinner/>
+            return <StyledSpinner/>
         }
 
         if (station !== {}) {
-            return <div className='station-detail__wrapper'>
+            return <div className={className}>
                 <div className='station-detail__header'>
                     <img src="../backButton_icon.png" className='back-button' alt="back to stations list"
                          onClick={backToList}/>
@@ -78,16 +74,15 @@ const Station = (props) => {
                         <span className='station-detail__label'>Is connected</span>
                     </div>
                     <div>
-                    <span className='station-detail__value'><StationAvailability
-                        availability={station.available}/></span>
+                    <span className='station-detail__value'>
+                        <StyledStationAvailability availability={station.available}/></span>
                         <span className='station-detail__value'>{formatDate(station.lastconnect)}</span>
                         <span className='station-detail__value'>{station.connected ? 'Yes' : 'No'}</span>
                     </div>
                 </div>
 
-                <div className='station-detail__map'>
-                    <Position lng={station.lng} lat={station.lat}/>
-                </div>
+
+                <StyledMap lng={station.lng} lat={station.lat}/>
             </div>
         }
     }

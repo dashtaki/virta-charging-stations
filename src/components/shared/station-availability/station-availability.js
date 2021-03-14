@@ -1,9 +1,9 @@
-const StationAvailability = (props) => {
+const StationAvailability = ({className, ...props}) => {
     const {availability} = props;
     const src = availability ? '../available_icon.png' : '../offline_icon.png';
     const availabilityText = availability ? 'Available' : 'Offline';
 
-    return <span className='station-availability'>
+    return <span className={className}>
                 <img src={src}
                      className='station-availability__icon'
                      alt="station availability"/>

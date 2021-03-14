@@ -1,6 +1,6 @@
 const StationName = (props) => {
     const {name} = props;
-    return <span className='station-name'>{name}</span>;
+    return <strong>{name}</strong>;
 }
 
 export default StationName;

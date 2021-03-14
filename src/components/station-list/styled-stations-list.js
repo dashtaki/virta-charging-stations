@@ -22,8 +22,4 @@ export const StyledStationsList = styled(StationsList)`
     margin-bottom: 0.5rem;
     cursor: pointer;
   }
-
-  ul li .station-name {
-    font-weight: bold;
-  }
 `
