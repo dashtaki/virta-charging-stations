@@ -5,6 +5,7 @@ import {StyledStation} from './components/station/styled-station';
 //TODO: remove extra file
 //TODO: update spinner section in readme if file structure changed
 //TODO: prettier
+//TODO: rename styled component
 
 function App() {
     return <div className='main__wrapper'>
