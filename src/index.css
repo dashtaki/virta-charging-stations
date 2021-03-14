@@ -15,36 +15,6 @@ body {
 }
 
 /* ============================
-        StationsList
-==============================*/
-.station-list__wrapper {
-    width: 40%;
-}
-
-h1 {
-    font-size: 3.5rem;
-}
-
-.station-list__wrapper ul {
-    padding: 0;
-}
-
-.station-list__wrapper ul li {
-    background-color: white;
-    padding: 1.3rem 1rem;
-    border-radius: 0.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
-    cursor: pointer;
-}
-
-.station-list__wrapper ul li .station-name {
-    font-weight: bold;
-}
-
-/* ============================
        StationAvailability
 ==============================*/
 .station-availability {

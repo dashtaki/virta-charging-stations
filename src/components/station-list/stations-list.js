@@ -5,7 +5,7 @@ import Spinner from '../shared/spinner';
 import {useHistory} from 'react-router-dom';
 import {getAllTransactions} from '../../API/api';
 
-const StationsList = () => {
+const StationsList = ({className}) => {
     const [stations, setStations] = useState([]);
     const history = useHistory();
     const simulateLatency = false;
@@ -42,7 +42,7 @@ const StationsList = () => {
     return <>
         {
             stations.length
-                ? <div className='station-list__wrapper'>
+                ? <div className={className}>
                     <h1>Your stations</h1>
                     <ul>
                         {getTransactionsList()}
