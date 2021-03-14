@@ -1,6 +1,6 @@
 # VIRTA Charging Stations
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Call API to get 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Call API to get
 all charging stations and browse to see the detail about each station.
 
 _Note: Currently just get the stations data from a json file locally._
@@ -33,6 +33,7 @@ Shut it down manually with `Ctrl-C`.
 
 Launches E2E test runner in the interactive watch mode.\
 For running test you have to:
+
 1. Run `npm start`
 2. Run `npm run cypress:open`
 3. You can see test cases in Cypress window
@@ -62,7 +63,6 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 # Code scaffolding
 
-
 ### BEM
 
 Use [BEM](http://getbem.com/introduction/) as CSS naming methodology and naming convention for writing cleaner and more readable CSS classes.
@@ -75,22 +75,23 @@ I have created a component as Spinner for showing a loader while fetching data f
 Most of the time fetching data from .json file is fast in terms of response, then I tried to simulate latency about fetching data to show the spinner.
 For simulating you just need to:
 
-1. Got to `src/stations/stationslist.js`
+1. Got to `src/components/stations-list/stations-list.js`
 2. Set `simulateLatency` in line:11 as `true`
 3. Reload page
 
 ### SOLID
+
 Regarding the `S` for `SOLID` I just tried to keep each function(component as a funstion as well) to
 just responsible for a single task. That's why I just created a separate component for every part
 and also keep the simple stupid ;)
 
 ### Error Handling
+
 In case of multiple API endpoint I can provide a global error handling. As you can see I just throw the error in case of
 error in fetching data from .json file.
 
 ### Browse-ability and bookmark-ability
+
 User can see station detail from the main screen(`/`) or even you can directly
-use specific station id in address bar as param, for instance for station id **101** it should be 
+use specific station id in address bar as param, for instance for station id **101** it should be
 like `/station/101`.
-
-

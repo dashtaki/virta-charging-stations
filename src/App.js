@@ -2,8 +2,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { StyledStationsList } from './components/station-list/styled-stations-list'
 import { StyledStation } from './components/station/styled-station'
 
-//TODO: update spinner section in readme if file structure changed
-
 function App() {
     return (
         <div className="main__wrapper">
