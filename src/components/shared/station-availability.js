@@ -1,6 +1,6 @@
 const StationAvailability = (props) => {
     const {availability} = props;
-    const src = availability ? './available_icon.png' : './offline_icon.png';
+    const src = availability ? '../available_icon.png' : '../offline_icon.png';
     const availabilityText = availability ? 'Available' : 'Offline';
 
     return <span className='station-availability'>

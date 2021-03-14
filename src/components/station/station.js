@@ -1,54 +1,103 @@
-import {useHistory, useLocation} from 'react-router-dom';
 import StationAvailability from '../shared/station-availability';
 import Position from './position';
+import {useEffect, useState} from 'react';
+import {getAllTransactions} from '../../API/api';
+import Spinner from '../shared/spinner';
+import {Link} from "react-router-dom";
+import {retrieveGeoLocation} from "../../helpers/geo-location";
 
-const Station = () => {
-    const location = useLocation();
-    const history = useHistory();
-    const {name, available, lastconnect, position, connected} = location.state.station;
-    const {lang, lat} = retrieveGeoLocation();
+const Station = (props) => {
+    const [station, setStation] = useState({});
+    const {id} = props.match.params;
 
-    function retrieveGeoLocation() {
-        const geoLocations = position.split(',');
-        const lang = parseFloat(geoLocations[0]);
-        const lat = parseFloat(geoLocations[1]);
-        return {lang, lat};
-    }
+    useEffect(() => {
+        const fetchStationDetail = (setSerializedStation) => {
+            getAllTransactions()
+                .then(stationsResponse => {
+                    const searchedStation = stationsResponse.find(station => station.station_ID === Number(id));
+                    searchedStation ? setSerializedStation(searchedStation) : setStation(null)
+                })
+                .catch((error) => {
+                    throw error
+                });
+        }
+
+        const setSerializedStation = (passedStation) => {
+            const {position} = passedStation;
+            const {lng, lat} = retrieveGeoLocation(position);
+            const selectedStation = {...passedStation, lng, lat};
+            setStation(selectedStation);
+        }
+
+        if (props.location.state) {
+            const passedStation = props.location.state.station;
+            setSerializedStation(passedStation);
+            return;
+        }
+
+        fetchStationDetail(setSerializedStation);
+    }, [])
 
     const formatDate = (date) => {
         return new Date(date).toLocaleString();
     }
 
     const backToList = () => {
-        history.goBack();
+        /**
+         * Use 'push' instead of go back to work properly
+         * even when you open a specific station in address bar directly
+         */
+        props.history.push('/');
     }
 
-    return (
-        <div className='station-detail__wrapper'>
-            <div className='station-detail__header'>
-                <img src="./backButton_icon.png" className='back-button' alt="back to stations list"
-                     onClick={backToList}/>
-                <h1 className='station-detail__name'>{name}</h1>
+    const renderContent = () => {
+        if (!station) {
+            return <div className="not-exist__wrapper">
+                <img src="../not-found-img.jpg" alt="station not found"/>
+                <h2 className="not-exist__title"> Opps! Station does not exist. See the stations list <Link
+                    to="/">Here!</Link></h2>
             </div>
+        }
 
-            <div className='station-detail'>
-                <div>
-                    <span className='station-detail__label'>Availability</span>
-                    <span className='station-detail__label'>Last connect</span>
-                    <span className='station-detail__label'>Is connected</span>
-                </div>
-                <div>
-                    <span className='station-detail__value'><StationAvailability availability={available}/></span>
-                    <span className='station-detail__value'>{formatDate(lastconnect)}</span>
-                    <span className='station-detail__value'>{connected ? 'Yes' : 'No'}</span>
-                </div>
-            </div>
+        if (station === {}) {
+            return <Spinner/>
+        }
 
-            <div className='station-detail__map'>
-                <Position lng={lang} lat={lat}/>
+        if (station !== {}) {
+            return <div className='station-detail__wrapper'>
+                <div className='station-detail__header'>
+                    <img src="../backButton_icon.png" className='back-button' alt="back to stations list"
+                         onClick={backToList}/>
+                    <h1 className='station-detail__name'>{station.name}</h1>
+                </div>
+
+                <div className='station-detail'>
+                    <div>
+                        <span className='station-detail__label'>Availability</span>
+                        <span className='station-detail__label'>Last connect</span>
+                        <span className='station-detail__label'>Is connected</span>
+                    </div>
+                    <div>
+                    <span className='station-detail__value'><StationAvailability
+                        availability={station.available}/></span>
+                        <span className='station-detail__value'>{formatDate(station.lastconnect)}</span>
+                        <span className='station-detail__value'>{station.connected ? 'Yes' : 'No'}</span>
+                    </div>
+                </div>
+
+                <div className='station-detail__map'>
+                    <Position lng={station.lng} lat={station.lat}/>
+                </div>
             </div>
-        </div>
-    )
+        }
+    }
+
+    return <>
+        {
+            renderContent()
+        }
+    </>
+
 }
 
 export default Station;

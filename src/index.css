@@ -161,14 +161,26 @@ h1 {
     align-items: center;
 }
 
+.not-exist__wrapper {
+    text-align: center;
+}
+
+.not-exist__wrapper img {
+    width: 37%;
+    border-radius: 2%;
+}
+
+.not-exist__title {
+    padding-top: 1rem;
+    font-weight: 500;
+}
+
 /* ============================
             Map
 ==============================*/
 .station-detail__map {
     background-color: white;
     margin-top: .5rem;
-    border-radius: 0.375rem;
-    padding-top: 4px;
     position: relative;
 }
 
