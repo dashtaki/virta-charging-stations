@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Position from './position';
 
-const StyledMap = styled(Position)`
+const StyledPosition = styled(Position)`
   background-color: white;
   margin-top: .5rem;
   position: relative;
@@ -13,4 +13,4 @@ const StyledMap = styled(Position)`
   }
 `
 
-export default StyledMap
+export default StyledPosition

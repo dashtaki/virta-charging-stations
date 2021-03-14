@@ -2,9 +2,9 @@ import {useEffect, useState} from 'react';
 import {getAllTransactions} from '../../API/api';
 import {retrieveGeoLocation} from '../../helpers/geo-location';
 import StyledNotExistStation from './not-exist-station/styled-not-exist-station';
-import StyledSpinner from "../shared/spinner/styled-spinner";
+import StyledSpinner from '../shared/spinner/styled-spinner';
 import StyledStationAvailability from '../shared/station-availability/styled-station-avaialbility';
-import StyledMap from "./map/styled-map";
+import StyledPosition from './map/styled-position';
 
 const Station = ({className, ...props}) => {
     const [station, setStation] = useState({});
@@ -82,7 +82,7 @@ const Station = ({className, ...props}) => {
                 </div>
 
 
-                <StyledMap lng={station.lng} lat={station.lat}/>
+                <StyledPosition lng={station.lng} lat={station.lat}/>
             </div>
         }
     }
