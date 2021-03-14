@@ -117,3 +117,12 @@ like `/station/101`.
 There are tons and tons of ways to use styling in React, but one way that looks to be the best practice is to make components within
 your component to style directly. These styled components affect only
 that specific component in which they are rendered, and nothing else. Components in React work the best when they are small, focused, and reusable.
+
+### React-Redux
+
+I do not use any state management tools because of 2 reasons:
+
+1. It was not mentioned in the requirement of the assignment
+2. Based the assignment scale I decided to keep it simple by avoiding Redux pattern complexity
+3. Last but not least, No need to add use state management capabilities, maybe in the next step, as you mentioned
+   maybe assignment for the next round will be larger. Of course, If I passed this step :)
