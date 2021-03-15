@@ -3,7 +3,7 @@ import StationName from './station-name'
 import { useHistory } from 'react-router-dom'
 import { getAllTransactions } from '../../API/api'
 import Spinner from '../shared/spinner/Spinner'
-import StyledStationAvailability from '../shared/station-availability/styled-station-avaialbility'
+import StationAvailability from '../shared/station-availability/StationAvailability'
 
 const StationsList = ({ className }) => {
     const [stations, setStations] = useState([])
@@ -36,9 +36,7 @@ const StationsList = ({ className }) => {
                         onClick={() => showStationDetail(station)}
                     >
                         <StationName name={station.name} />
-                        <StyledStationAvailability
-                            availability={station.available}
-                        />
+                        <StationAvailability availability={station.available} />
                     </li>
                 ))}
             </>

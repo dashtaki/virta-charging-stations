@@ -3,7 +3,7 @@ import { getAllTransactions } from '../../API/api'
 import { retrieveGeoLocation } from '../../helpers/geo-location'
 import NotExistStation from './not-exist-station/NotExistStation'
 import Spinner from '../shared/spinner/Spinner'
-import StyledStationAvailability from '../shared/station-availability/styled-station-avaialbility'
+import StationAvailability from '../shared/station-availability/StationAvailability'
 import Position from './position/Position'
 
 const Station = ({ className, ...props }) => {
@@ -91,7 +91,7 @@ const Station = ({ className, ...props }) => {
                         </div>
                         <div>
                             <span className="station-detail__value">
-                                <StyledStationAvailability
+                                <StationAvailability
                                     availability={station.available}
                                 />
                             </span>
