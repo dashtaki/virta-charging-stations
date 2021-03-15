@@ -53,7 +53,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run pretty`
 
-Run **prettier** to run make code prettier :)
+Run **prettier** to run make code prettier, Because of taking care of code format.
 
 ### `npm run eject`
 
@@ -65,7 +65,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-# Dssign
+# Design
 
 The application look and fell is based on provided UI/UX taht is
 available on this [Abstract](https://app.abstract.com/share/aea01f0c-8698-4982-a005-572863ecd211) Url.
