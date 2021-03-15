@@ -1,7 +1,10 @@
 import styled from 'styled-components'
-import Spinner from './spinner'
 
-const StyledSpinner = styled(Spinner)`
+const Spinner = ({ className }) => {
+    return <div className={className}></div>
+}
+
+export default styled(Spinner)`
     animation: animate 1.5s linear infinite;
     clip: rect(0, 80px, 80px, 40px);
     height: 80px;
@@ -43,5 +46,3 @@ const StyledSpinner = styled(Spinner)`
         }
     }
 `
-
-export default StyledSpinner

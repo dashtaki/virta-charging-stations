@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import StationName from './station-name'
 import { useHistory } from 'react-router-dom'
 import { getAllTransactions } from '../../API/api'
-import StyledSpinner from '../shared/spinner/styled-spinner'
+import Spinner from '../shared/spinner/Spinner'
 import StyledStationAvailability from '../shared/station-availability/styled-station-avaialbility'
 
 const StationsList = ({ className }) => {
@@ -53,7 +53,7 @@ const StationsList = ({ className }) => {
                     <ul>{getTransactionsList()}</ul>
                 </div>
             ) : (
-                <StyledSpinner />
+                <Spinner />
             )}
         </>
     )
