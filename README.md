@@ -120,7 +120,7 @@ that specific component in which they are rendered, and nothing else. Components
 
 ### React-Redux
 
-I do not use any state management tools because of 2 reasons:
+I do not use any state management tools because of 3 reasons:
 
 1. It was not mentioned in the requirement of the assignment
 2. Based the assignment scale I decided to keep it simple by avoiding Redux pattern complexity
