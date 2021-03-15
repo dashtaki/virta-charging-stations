@@ -38,7 +38,7 @@ For running test you have to:
 2. Run `npm run cypress:open`
 3. You can see test cases in Cypress window
 
-I Also have written some unit test for some functions, like in `/src/api/api.js` and
+I Also have written some unit test for some functions, like in `/src/api/API.js` and
 `/src/herpers/GeoLocation.js`w
 
 ### `npm run build`

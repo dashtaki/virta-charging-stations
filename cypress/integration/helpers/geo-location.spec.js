@@ -1,4 +1,4 @@
-const { retrieveGeoLocation } = require('../../../src/helpers/GeoLocation')
+const { retrieveGeoLocation } = require('../../../src/helpers/geoLocation')
 describe('GeoLocation.js', () => {
     it('should return null if position is null or undefined', () => {
         const actual = retrieveGeoLocation()

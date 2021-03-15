@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { getAllTransactions } from '../../API/api'
-import { retrieveGeoLocation } from '../../helpers/GeoLocation'
+import { getAllTransactions } from '../../API/API'
+import { retrieveGeoLocation } from '../../helpers/geoLocation'
 import NotExistStation from './not-exist-station/NotExistStation'
 import Spinner from '../shared/spinner/Spinner'
 import StationAvailability from '../shared/station-availability/StationAvailability'

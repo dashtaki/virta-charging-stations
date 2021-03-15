@@ -1,11 +1,11 @@
-import {getAllTransactions} from '../../../src/API/api';
-import axios from "axios";
+import { getAllTransactions } from '../../../src/API/API'
+import axios from 'axios'
 
 describe('API', () => {
     it('should get all stations', () => {
         const spy = cy.spy(axios, 'get').as('anyArgs')
-        getAllTransactions();
+        getAllTransactions()
 
         expect(spy).to.be.calledWith('http://localhost:3000/stations-data.json')
-    });
-});
+    })
+})

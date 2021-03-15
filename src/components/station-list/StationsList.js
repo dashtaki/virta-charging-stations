@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import StationName from './StationName'
 import { useHistory } from 'react-router-dom'
-import { getAllTransactions } from '../../API/api'
+import { getAllTransactions } from '../../API/API'
 import Spinner from '../shared/spinner/Spinner'
 import StationAvailability from '../shared/station-availability/StationAvailability'
 import styled from 'styled-components'
