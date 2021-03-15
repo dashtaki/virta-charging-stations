@@ -14,9 +14,7 @@ const StationsList = ({ className }) => {
         getAllTransactions()
             .then((stationsResponse) => {
                 setTimeout(
-                    () => {
-                        setStations(stationsResponse)
-                    },
+                    () => setStations(stationsResponse.data),
                     simulateLatency ? 2500 : 0
                 )
             })

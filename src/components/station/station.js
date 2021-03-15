@@ -14,7 +14,8 @@ const Station = ({ className, ...props }) => {
         const fetchStationDetail = (setSerializedStation) => {
             getAllTransactions()
                 .then((stationsResponse) => {
-                    const searchedStation = stationsResponse.find(
+                    const { data } = stationsResponse
+                    const searchedStation = data.find(
                         (station) => station.station_ID === Number(id)
                     )
                     searchedStation
@@ -109,7 +110,7 @@ const Station = ({ className, ...props }) => {
         }
     }
 
-    return <>{renderContent()}</>
+    return renderContent()
 }
 
 export default Station
