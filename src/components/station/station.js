@@ -4,7 +4,7 @@ import { retrieveGeoLocation } from '../../helpers/geo-location'
 import StyledNotExistStation from './not-exist-station/styled-not-exist-station'
 import StyledSpinner from '../shared/spinner/styled-spinner'
 import StyledStationAvailability from '../shared/station-availability/styled-station-avaialbility'
-import Position from './map/Position.js'
+import Position from './position/Position.js'
 
 const Station = ({ className, ...props }) => {
     const [station, setStation] = useState({})
