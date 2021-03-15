@@ -39,7 +39,7 @@ For running test you have to:
 3. You can see test cases in Cypress window
 
 I Also have written some unit test for some functions, like in `/src/api/api.js` and
-`/src/herpers/geo-location.js`w
+`/src/herpers/GeoLocation.js`w
 
 ### `npm run build`
 
