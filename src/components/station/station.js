@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { getAllTransactions } from '../../API/api'
 import { retrieveGeoLocation } from '../../helpers/geo-location'
-import StyledNotExistStation from './not-exist-station/styled-not-exist-station'
+import NotExistStation from './not-exist-station/NotExistStation'
 import StyledSpinner from '../shared/spinner/styled-spinner'
 import StyledStationAvailability from '../shared/station-availability/styled-station-avaialbility'
-import Position from './position/Position.js'
+import Position from './position/Position'
 
 const Station = ({ className, ...props }) => {
     const [station, setStation] = useState({})
@@ -57,7 +57,7 @@ const Station = ({ className, ...props }) => {
 
     const renderContent = () => {
         if (!station) {
-            return <StyledNotExistStation />
+            return <NotExistStation />
         }
 
         if (station === {}) {
