@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { StyledStationsList } from './components/station-list/styled-stations-list'
-import { StyledStation } from './components/station/styled-station'
+import Station from './components/station/Station'
 
 function App() {
     return (
@@ -8,7 +8,7 @@ function App() {
             <Router>
                 <Switch>
                     <Route path={'/'} exact component={StyledStationsList} />
-                    <Route path={'/station/:id'} component={StyledStation} />
+                    <Route path={'/station/:id'} component={Station} />
                 </Switch>
             </Router>
         </div>
