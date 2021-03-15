@@ -1,5 +1,6 @@
 import React from 'react'
 import { Map, Marker } from 'pigeon-maps'
+import styled from 'styled-components'
 
 const Position = ({ className, ...props }) => {
     const { lng, lat } = props
@@ -29,4 +30,14 @@ const Position = ({ className, ...props }) => {
     )
 }
 
-export default Position
+export default styled(Position)`
+    background-color: white;
+    margin-top: 0.5rem;
+    position: relative;
+
+    .map__no-position-provided {
+        text-align: center;
+        padding: 5rem 0;
+        font-weight: 500;
+    }
+`
