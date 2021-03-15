@@ -85,7 +85,7 @@ Most of the time fetching data from .json file is fast in terms of response, the
 For simulating you just need to:
 
 1. Got to `src/components/stations-list/stations-list.js`
-2. Set `simulateLatency` in line:11 as `true`
+2. Set `simulateLatency` in line:12 as `true`
 3. Reload page
 
 ### Prettier
