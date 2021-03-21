@@ -50,7 +50,7 @@ const Station = ({ className, ...props }) => {
 
     const backToList = () => {
         /**
-         * Use 'push' instead of go back to work properly
+         * Use 'push' instead of goBack() to work properly
          * even when you open a specific station in address bar directly
          */
         props.history.push('/')
