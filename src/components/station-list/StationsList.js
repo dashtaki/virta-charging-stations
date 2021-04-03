@@ -4,15 +4,9 @@ import styled from 'styled-components'
 import { GET_STATIONS } from '../../qraphql/queries/getStations'
 import Error from '../shared/error/Error'
 import { useQuery } from '@apollo/react-hooks'
-import { useEffect } from 'react'
 
 const StationsList = ({ className }) => {
     const { data, loading, error } = useQuery(GET_STATIONS)
-
-    // useEffect(() => {
-    //     debugger
-    //     console.log(data)
-    // }, [])
 
     return (
         <>

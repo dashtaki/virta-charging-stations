@@ -8,7 +8,10 @@ const Station = ({ className, ...props }) => {
     const history = useHistory()
 
     const showStationDetail = (station) => {
-        history.push(`/station/${station.station_ID}`, { station })
+        history.push(`/station/${station.station_ID}`, {
+            lastConnect: station.lastconnect,
+            position: station.position,
+        })
     }
 
     return (

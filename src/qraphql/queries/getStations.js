@@ -6,6 +6,8 @@ export const GET_STATIONS = gql`
             station_ID
             available
             name
+            lastconnect
+            position
         }
     }
 `

@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Map, Marker } from 'pigeon-maps'
 import styled from 'styled-components'
+import { retrieveGeoLocation } from '../../../helpers/geoLocation'
 
 const Position = ({ className, ...props }) => {
-    const { lng, lat } = props
+    const [longitude, setLongitude] = useState()
+    const [latitude, setLatitude] = useState()
+    const { position } = props
+
+    useEffect(() => {
+        const { lon, lat } = retrieveGeoLocation(position)
+        setLatitude(lat)
+        setLongitude(lon)
+    }, [position])
 
     const mapTilerProvider = (x, y, z) => {
         const convertedString = String.fromCharCode(97 + ((x + y + z) % 3))
@@ -12,18 +21,18 @@ const Position = ({ className, ...props }) => {
 
     return (
         <div className={className}>
-            {!lat || !lng ? (
+            {!latitude || !longitude ? (
                 <div className="map__no-position-provided">
                     There is no position provided!
                 </div>
             ) : (
                 <Map
-                    defaultCenter={[lng, lat]}
+                    defaultCenter={[longitude, latitude]}
                     defaultZoom={16}
                     height={400}
                     provider={mapTilerProvider}
                 >
-                    <Marker anchor={[lng, lat]} payload={1} />
+                    <Marker anchor={[longitude, latitude]} payload={1} />
                 </Map>
             )}
         </div>

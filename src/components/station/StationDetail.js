@@ -1,72 +1,32 @@
-import { useEffect, useState } from 'react'
-import { getAllTransactions } from '../../API/API'
-import { retrieveGeoLocation } from '../../helpers/geoLocation'
 import NotExistStation from './not-exist-station/NotExistStation'
 import Spinner from '../shared/spinner/Spinner'
 import StationAvailability from '../shared/station-availability/StationAvailability'
 import Position from './position/Position'
 import styled from 'styled-components'
+import { useParams } from 'react-router-dom'
+import { useQuery } from '@apollo/react-hooks'
+import { GET_STATION } from '../../qraphql/queries/station'
+import { useLocation } from 'react-router'
 
 const StationDetail = ({ className, ...props }) => {
-    const [station, setStation] = useState({})
-    const { id } = props.match.params
-    // TODO: useParams()
+    const { id } = useParams()
+    const {
+        state: { lastConnect, position },
+    } = useLocation()
+    const { data, error, loading } = useQuery(GET_STATION, {
+        variables: { id },
+    })
 
-    useEffect(() => {
-        const fetchStationDetail = (setSerializedStation) => {
-            getAllTransactions()
-                .then((stationsResponse) => {
-                    const { data } = stationsResponse
-                    const searchedStation = data.find(
-                        (station) => station.station_ID === Number(id)
-                    )
-                    searchedStation
-                        ? setSerializedStation(searchedStation)
-                        : setStation(null)
-                })
-                .catch((error) => {
-                    throw error
-                })
-        }
+    const formatDate = (date) => new Date(date).toLocaleString()
 
-        const setSerializedStation = (passedStation) => {
-            const { position } = passedStation
-            const { lng, lat } = retrieveGeoLocation(position)
-            const selectedStation = { ...passedStation, lng, lat }
-            setStation(selectedStation)
-        }
-
-        if (props.location.state) {
-            const passedStation = props.location.state.station
-            setSerializedStation(passedStation)
-            return
-        }
-
-        fetchStationDetail(setSerializedStation)
-    }, [])
-
-    const formatDate = (date) => {
-        return new Date(date).toLocaleString()
-    }
-
-    const backToList = () => {
-        /**
-         * Use 'push' instead of goBack() to work properly
-         * even when you open a specific station in address bar directly
-         */
-        props.history.push('/')
-    }
+    const backToList = () => props.history.push('/')
 
     const renderContent = () => {
-        if (!station) {
-            return <NotExistStation />
-        }
+        if (loading) return <Spinner />
 
-        if (station === {}) {
-            return <Spinner />
-        }
+        if (error) return <NotExistStation />
 
-        if (station !== {}) {
+        if (data) {
             return (
                 <div className={className}>
                     <div className="station-detail__header">
@@ -76,7 +36,16 @@ const StationDetail = ({ className, ...props }) => {
                             alt="back to stations list"
                             onClick={backToList}
                         />
-                        <h1 className="station-detail__name">{station.name}</h1>
+                        <div className="station-detail__name__wrapper">
+                            <h1 className="station-detail__name">
+                                {data.station.name}
+                            </h1>
+                            {data.station.error && (
+                                <small className="station__error">
+                                    {data.station.error}
+                                </small>
+                            )}
+                        </div>
                     </div>
 
                     <div className="station-detail">
@@ -90,23 +59,35 @@ const StationDetail = ({ className, ...props }) => {
                             <span className="station-detail__label">
                                 Is connected
                             </span>
+                            <span className="station-detail__label">
+                                Currency
+                            </span>
+                            <span className="station-detail__label">
+                                Free usage
+                            </span>
                         </div>
                         <div>
                             <span className="station-detail__value">
                                 <StationAvailability
-                                    availability={station.available}
+                                    availability={data.station.available}
                                 />
                             </span>
                             <span className="station-detail__value">
-                                {formatDate(station.lastconnect)}
+                                {formatDate(lastConnect)}
                             </span>
                             <span className="station-detail__value">
-                                {station.connected ? 'Yes' : 'No'}
+                                {data.station.connected ? 'Yes' : 'No'}
+                            </span>
+                            <span className="station-detail__value">
+                                {data.station.currency}
+                            </span>
+                            <span className="station-detail__value">
+                                {data.station.free_usage ? 'Yes' : 'No'}
                             </span>
                         </div>
                     </div>
 
-                    <Position lng={station.lng} lat={station.lat} />
+                    <Position position={position} />
                 </div>
             )
         }
@@ -130,6 +111,19 @@ export default styled(StationDetail)`
         align-items: center;
     }
 
+    .station-detail__name__wrapper {
+        margin-bottom: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .station__error {
+        padding: 4px 1rem;
+        background: red;
+        border-radius: 16px;
+        color: white;
+        margin-top: 0.5rem;
+    }
+
     .station-detail {
         background-color: white;
         padding: 1rem;
@@ -138,6 +132,7 @@ export default styled(StationDetail)`
 
     .station-detail__name {
         font-size: 2.5rem;
+        margin: 0 0 0.4rem 0;
     }
 
     .station-detail .station-detail__label {
@@ -152,7 +147,7 @@ export default styled(StationDetail)`
     .station-detail .station-detail__label,
     .station-detail .station-detail__value {
         display: inline-flex;
-        width: 33.333%;
+        width: 20%;
         justify-content: center;
         align-items: center;
     }
