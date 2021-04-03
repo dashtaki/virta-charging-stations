@@ -1,6 +1,6 @@
 export const retrieveGeoLocation = (position) => {
     if (!position) {
-        return { lng: null, lat: null }
+        return { lon: null, lat: null }
     }
     const geoLocations = position.split(',')
     const lon = parseFloat(geoLocations[0])
