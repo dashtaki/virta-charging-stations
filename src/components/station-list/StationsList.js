@@ -4,9 +4,15 @@ import styled from 'styled-components'
 import { GET_STATIONS } from '../../qraphql/queries/getStations'
 import Error from '../shared/error/Error'
 import { useQuery } from '@apollo/react-hooks'
+import { FixedSizeList as List } from 'react-window'
 
 const StationsList = ({ className }) => {
     const { data, loading, error } = useQuery(GET_STATIONS)
+
+    const Row = ({ index }) => {
+        const station = data.stations[index]
+        return <Station station={station} />
+    }
 
     return (
         <>
@@ -17,14 +23,14 @@ const StationsList = ({ className }) => {
             ) : (
                 <div className={className}>
                     <h1>Your stations</h1>
-                    <ul>
-                        {data.stations.map((stationInfo) => (
-                            <Station
-                                key={stationInfo.station_ID}
-                                station={stationInfo}
-                            />
-                        ))}
-                    </ul>
+                    <List
+                        height={700}
+                        itemCount={data.stations.length}
+                        itemSize={30}
+                        width={700}
+                    >
+                        {Row}
+                    </List>
                 </div>
             )}
         </>

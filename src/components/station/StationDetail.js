@@ -13,6 +13,7 @@ const StationDetail = ({ className, ...props }) => {
     const {
         state: { lastConnect, position },
     } = useLocation()
+
     const { data, error, loading } = useQuery(GET_STATION, {
         variables: { id },
     })
