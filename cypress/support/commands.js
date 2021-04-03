@@ -23,3 +23,21 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+//
+// Cypress.Commands.add('stubGraphQL', (graphQlFixture) => {
+//     cy.fixture(graphQlFixture).then((mockedData) => {
+//         cy.on('window:before:load', (win) => {
+//             function fetch(path, { body }) {
+//                 // const { operationName } = JSON.parse(body)
+//                 return mockedData
+//             }
+//             cy.stub(win, 'fetch', fetch).withArgs('/stationsss').as('graphql');
+//         });
+//     })
+// })
+//
+// const responseStub = result => Promise.resolve({
+//     json: () => Promise.resolve(result),
+//     text: () => Promise.resolve(JSON.stringify(result)),
+//     ok: true,
+// })

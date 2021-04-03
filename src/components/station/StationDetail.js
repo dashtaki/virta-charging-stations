@@ -7,9 +7,10 @@ import StationAvailability from '../shared/station-availability/StationAvailabil
 import Position from './position/Position'
 import styled from 'styled-components'
 
-const Station = ({ className, ...props }) => {
+const StationDetail = ({ className, ...props }) => {
     const [station, setStation] = useState({})
     const { id } = props.match.params
+    // TODO: useParams()
 
     useEffect(() => {
         const fetchStationDetail = (setSerializedStation) => {
@@ -114,7 +115,7 @@ const Station = ({ className, ...props }) => {
     return renderContent()
 }
 
-export default styled(Station)`
+export default styled(StationDetail)`
     width: 50%;
 
     .back-button {

@@ -3,11 +3,24 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+// import {ApolloProvider} from 'react-apollo';
+import { ApolloProvider } from '@apollo/react-hooks'
+import { ApolloClient } from 'apollo-client'
+import { RestLink } from 'apollo-link-rest'
+import { InMemoryCache } from 'apollo-cache-inmemory'
+const restLink = new RestLink({ uri: 'https://api.test.virtaglobal.com' })
+
+const client = new ApolloClient({
+    link: restLink,
+    cache: new InMemoryCache(),
+})
 
 ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
+    <ApolloProvider client={client}>
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>
+    </ApolloProvider>,
     document.getElementById('root')
 )
 

@@ -1,58 +1,37 @@
-import { useEffect, useState } from 'react'
-import StationName from './StationName'
-import { useHistory } from 'react-router-dom'
-import { getAllTransactions } from '../../API/API'
 import Spinner from '../shared/spinner/Spinner'
-import StationAvailability from '../shared/station-availability/StationAvailability'
+import Station from './Station'
 import styled from 'styled-components'
+import { GET_STATIONS } from '../../qraphql/queries/getStations'
+import Error from '../shared/error/Error'
+import { useQuery } from '@apollo/react-hooks'
+import { useEffect } from 'react'
 
 const StationsList = ({ className }) => {
-    const [stations, setStations] = useState([])
-    const history = useHistory()
-    const simulateLatency = false
+    const { data, loading, error } = useQuery(GET_STATIONS)
 
-    useEffect(() => {
-        getAllTransactions()
-            .then((stationsResponse) => {
-                setTimeout(
-                    () => setStations(stationsResponse.data),
-                    simulateLatency ? 2500 : 0
-                )
-            })
-            .catch((error) => {
-                throw error
-            })
-    }, [simulateLatency])
-
-    const showStationDetail = (station) => {
-        history.push(`/station/${station.station_ID}`, { station })
-    }
-
-    const getTransactionsList = () => {
-        return (
-            <>
-                {stations.map((station) => (
-                    <li
-                        key={station.station_ID.toString()}
-                        onClick={() => showStationDetail(station)}
-                    >
-                        <StationName name={station.name} />
-                        <StationAvailability availability={station.available} />
-                    </li>
-                ))}
-            </>
-        )
-    }
+    // useEffect(() => {
+    //     debugger
+    //     console.log(data)
+    // }, [])
 
     return (
         <>
-            {stations.length ? (
+            {loading ? (
+                <Spinner />
+            ) : error ? (
+                <Error />
+            ) : (
                 <div className={className}>
                     <h1>Your stations</h1>
-                    <ul>{getTransactionsList()}</ul>
+                    <ul>
+                        {data.stations.map((stationInfo) => (
+                            <Station
+                                key={stationInfo.station_ID}
+                                station={stationInfo}
+                            />
+                        ))}
+                    </ul>
                 </div>
-            ) : (
-                <Spinner />
             )}
         </>
     )
@@ -67,16 +46,5 @@ export default styled(StationsList)`
 
     ul {
         padding: 0;
-    }
-
-    ul li {
-        background-color: white;
-        padding: 1.3rem 1rem;
-        border-radius: 0.5rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 0.5rem;
-        cursor: pointer;
     }
 `

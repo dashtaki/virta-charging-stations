@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import StationsList from './components/station-list/StationsList'
-import Station from './components/station/Station'
+import Station from './components/station/StationDetail'
 
 function App() {
     return (
