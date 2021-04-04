@@ -5,8 +5,11 @@ import styled from "styled-components"
 import { IStationProps } from "../../interfaces/components/station-list/IStationProps"
 import { IStation } from "../../interfaces/IStation"
 import { IStationDetailLocation } from "../../interfaces/components/station/IStationDetailLocation"
+import React, { ReactElement } from "react"
 
-const Station = (props: IStationProps) => {
+const Station: React.FC<IStationProps> = (
+  props: IStationProps
+): ReactElement => {
   const { station, className } = props
   const history = useHistory()
 

@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 import { INotExistStationProps } from "../../../interfaces/components/station/INotExistStationProps"
+import React, { ReactElement } from "react"
 
-const NotExistStation = (props: INotExistStationProps) => {
+const NotExistStation: React.FC<INotExistStationProps> = (
+  props: INotExistStationProps
+): ReactElement => {
   const { className } = props
 
   return (

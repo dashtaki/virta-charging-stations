@@ -8,8 +8,11 @@ import { FixedSizeList as List } from "react-window"
 import { IStationsListProps } from "../../interfaces/components/station-list/IStationsListProps"
 import { IReactWindowRow } from "../../interfaces/IReactWindowRow"
 import { IStation } from "../../interfaces/IStation"
+import React, { ReactElement } from "react"
 
-const StationsList = (props: IStationsListProps) => {
+const StationsList: React.FC<IStationsListProps> = (
+  props: IStationsListProps
+): ReactElement => {
   const { data, loading, error } = useQuery(GET_STATIONS)
   const { className } = props
 

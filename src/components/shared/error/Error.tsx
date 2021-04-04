@@ -1,8 +1,8 @@
 import styled from "styled-components"
-import React from "react"
+import React, { ReactElement } from "react"
 import { IErrorProps } from "../../../interfaces/components/shared/IErrorProps"
 
-const Error = (props: IErrorProps) => {
+const Error: React.FC<IErrorProps> = (props: IErrorProps): ReactElement => {
   const { className } = props
   const refreshPage = () => {
     window.location.reload()

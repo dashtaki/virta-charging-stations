@@ -1,7 +1,10 @@
 import styled from "styled-components"
 import { IStationAvailabilityProps } from "../../../interfaces/components/shared/IStationAvailabilityProps"
+import React, { ReactElement } from "react"
 
-const StationAvailability = (props: IStationAvailabilityProps) => {
+const StationAvailability: React.FC<IStationAvailabilityProps> = (
+  props: IStationAvailabilityProps
+): ReactElement => {
   const { className, availability } = props
   const src = availability ? "../available_icon.png" : "../offline_icon.png"
   const availabilityText = availability ? "Available" : "Offline"

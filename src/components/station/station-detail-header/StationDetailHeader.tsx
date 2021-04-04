@@ -1,8 +1,11 @@
 import styled from "styled-components"
 import { useHistory } from "react-router"
 import { IStationDetailHeaderProps } from "../../../interfaces/components/station/IStationDetailHeaderProps"
+import React, { ReactElement } from "react"
 
-const StationDetailHeader = (props: IStationDetailHeaderProps) => {
+const StationDetailHeader: React.FC<IStationDetailHeaderProps> = (
+  props: IStationDetailHeaderProps
+): ReactElement => {
   const { stationDetail, className } = props
   let history = useHistory<Location>()
 

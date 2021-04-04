@@ -1,7 +1,10 @@
 import styled from "styled-components"
 import { ISpinnerProps } from "../../../interfaces/components/shared/ISpinnerProps"
+import React, { ReactElement } from "react"
 
-const Spinner = (props: ISpinnerProps = {}) => {
+const Spinner: React.FC<ISpinnerProps> = (
+  props: ISpinnerProps
+): ReactElement => {
   const { className } = props
   return <div className={className}></div>
 }

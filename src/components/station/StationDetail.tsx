@@ -11,8 +11,11 @@ import StationDetailHeader from "./station-detail-header/StationDetailHeader"
 import { IStationDetailProps } from "../../interfaces/components/station/IStationDetailProps"
 import { IStationDetailLocation } from "../../interfaces/components/station/IStationDetailLocation"
 import { IStationDetailParams } from "../../interfaces/components/station/IStationDetailParams"
+import React, { ReactElement } from "react"
 
-const StationDetail = (props: IStationDetailProps) => {
+const StationDetail: React.FC<IStationDetailProps> = (
+  props: IStationDetailProps
+): ReactElement => {
   const { className } = props
   const { id } = useParams<IStationDetailParams>()
   const { state } = useLocation<IStationDetailLocation>()

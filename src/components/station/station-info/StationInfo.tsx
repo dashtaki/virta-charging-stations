@@ -1,8 +1,11 @@
 import styled from "styled-components"
 import StationAvailability from "../../shared/station-availability/StationAvailability"
 import { IStationInfoProps } from "../../../interfaces/components/station/IStationInfoProps"
+import React, { ReactElement } from "react"
 
-const StationInfo = (props: IStationInfoProps) => {
+const StationInfo: React.FC<IStationInfoProps> = (
+  props: IStationInfoProps
+): ReactElement => {
   const { station, lastConnect, className } = props
 
   const formatDate = (date: string): string => {
