@@ -25,7 +25,7 @@ const StationDetail = ({ className }) => {
         if (data) {
             return (
                 <div className={className}>
-                    <StationDetailHeader station={data.station} />
+                    <StationDetailHeader stationDetail={data.station} />
 
                     <StationInfo
                         lastConnect={state?.lastConnect}
