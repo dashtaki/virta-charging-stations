@@ -20,7 +20,7 @@ Because The API endpoint(in this case `/stations`) for getting all stations retu
 so it will be a performance issue. That's shy I have used [react-window](https://react-window.now.sh/#/examples/list/fixed-size) for windowing
 the data.
 
-![Before windowing by React Profiler](https://https://github.com/dashtaki/virta-charging-stations/blob/master/before-windowing.png)
+![Before windowing by React Profiler](https://github.com/dashtaki/virta-charging-stations/blob/master/before-windowing.png)
 
 ### Test
 
