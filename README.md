@@ -5,7 +5,8 @@ all charging stations and browse to see the detail about each station.
 
 # Update - According to second part of the assignment
 
-###Typescript
+### Typescript
+
 I have switched to Typescript and as you can see in `/src` and `/cypress` directories.
 Prettier rules updated regarding the Typescript.
 
