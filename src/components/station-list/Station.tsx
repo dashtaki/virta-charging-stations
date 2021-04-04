@@ -4,16 +4,18 @@ import StationAvailability from "../shared/station-availability/StationAvailabil
 import styled from "styled-components"
 import { IStationProps } from "../../interfaces/components/station-list/IStationProps"
 import { IStation } from "../../interfaces/IStation"
+import { IStationDetailLocation } from "../../interfaces/components/station/IStationDetailLocation"
 
 const Station = (props: IStationProps) => {
   const { station, className } = props
   const history = useHistory()
 
   const showStationDetail = (station: IStation) => {
-    history.push(`/station/${station.station_ID}`, {
+    const state: IStationDetailLocation = {
       lastConnect: station.lastconnect,
       position: station.position,
-    })
+    }
+    history.push(`/station/${station.station_ID}`, state)
   }
 
   return (
