@@ -19,7 +19,6 @@ export const GET_STATION = gql`
             connector_info
             error
             currency
-            free_usage
         }
     }
 `

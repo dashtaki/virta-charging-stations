@@ -1,5 +1,6 @@
 import { IStyledComponent } from "../IStyledComponent"
+import { TrueFalse } from "../../types/true-false"
 
 export interface IStationAvailabilityProps extends IStyledComponent {
-  availability: 0 | 1
+  availability: TrueFalse
 }

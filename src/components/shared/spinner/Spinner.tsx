@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { ISpinnerProps } from "../../../interfaces/components/ISpinnerProps"
 
-const Spinner = (props: ISpinnerProps) => {
+const Spinner = (props: ISpinnerProps = {}) => {
   const { className } = props
   return <div className={className}></div>
 }

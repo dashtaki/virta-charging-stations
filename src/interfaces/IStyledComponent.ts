@@ -1,3 +1,3 @@
 export interface IStyledComponent {
-  className: string
+  className?: string
 }
