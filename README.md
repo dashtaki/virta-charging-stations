@@ -5,7 +5,7 @@ all charging stations and browse to see the detail about each station.
 
 _Note: Currently just get the stations data from a json file locally._
 
-# Update - According to second part of assignment
+# Update - According to second part of the assignment
 
 ###Typescript
 
@@ -45,6 +45,10 @@ Directories structure changed to:
 ### Error Handling
 
 I tried to cover all edge cases and catch graphQl error in components as well. So I have created specific in component for handling errors.
+
+### Branching
+
+I tried to create specific branchs for every changes, For instance: `feature/typescript`, `feature/qraphql`, `feature/windowing`, ...
 
 # Get started
 
