@@ -1,11 +1,11 @@
-import { useHistory } from "react-router-dom"
-import StationName from "./StationName"
-import StationAvailability from "../shared/station-availability/StationAvailability"
-import styled from "styled-components"
-import { IStationProps } from "../../interfaces/components/station-list/IStationProps"
-import { IStation } from "../../interfaces/IStation"
-import { IStationDetailLocation } from "../../interfaces/components/station/IStationDetailLocation"
-import React, { ReactElement } from "react"
+import { useHistory } from 'react-router-dom'
+import StationName from './StationName'
+import StationAvailability from '../shared/station-availability/StationAvailability'
+import styled from 'styled-components'
+import { IStationProps } from '../../interfaces/components/station-list/IStationProps'
+import { IStation } from '../../interfaces/IStation'
+import { IStationDetailLocation } from '../../interfaces/components/station/IStationDetailLocation'
+import React, { ReactElement } from 'react'
 
 const Station: React.FC<IStationProps> = (
   props: IStationProps

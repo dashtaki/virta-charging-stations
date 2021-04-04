@@ -1,4 +1,4 @@
 export interface IStationDetailLocation {
-  lastConnect: string
-  position: string
+    lastConnect: string
+    position: string
 }

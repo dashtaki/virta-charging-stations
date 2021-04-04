@@ -1,7 +1,7 @@
-import styled from "styled-components"
-import { useHistory } from "react-router"
-import { IStationDetailHeaderProps } from "../../../interfaces/components/station/IStationDetailHeaderProps"
-import React, { ReactElement } from "react"
+import styled from 'styled-components'
+import { useHistory } from 'react-router'
+import { IStationDetailHeaderProps } from '../../../interfaces/components/station/IStationDetailHeaderProps'
+import React, { ReactElement } from 'react'
 
 const StationDetailHeader: React.FC<IStationDetailHeaderProps> = (
   props: IStationDetailHeaderProps
@@ -9,7 +9,7 @@ const StationDetailHeader: React.FC<IStationDetailHeaderProps> = (
   const { stationDetail, className } = props
   let history = useHistory<Location>()
 
-  const backToList = () => history.push("/")
+  const backToList = () => history.push('/')
 
   return (
     <div className={className}>

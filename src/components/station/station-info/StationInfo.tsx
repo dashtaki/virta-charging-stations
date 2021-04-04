@@ -1,7 +1,7 @@
-import styled from "styled-components"
-import StationAvailability from "../../shared/station-availability/StationAvailability"
-import { IStationInfoProps } from "../../../interfaces/components/station/IStationInfoProps"
-import React, { ReactElement } from "react"
+import styled from 'styled-components'
+import StationAvailability from '../../shared/station-availability/StationAvailability'
+import { IStationInfoProps } from '../../../interfaces/components/station/IStationInfoProps'
+import React, { ReactElement } from 'react'
 
 const StationInfo: React.FC<IStationInfoProps> = (
   props: IStationInfoProps
@@ -9,7 +9,7 @@ const StationInfo: React.FC<IStationInfoProps> = (
   const { station, lastConnect, className } = props
 
   const formatDate = (date: string): string => {
-    if (!date) return "No date"
+    if (!date) return 'No date'
     return new Date(date).toLocaleString()
   }
 
@@ -28,11 +28,11 @@ const StationInfo: React.FC<IStationInfoProps> = (
         </span>
         <span className="station-detail__value">{formatDate(lastConnect)}</span>
         <span className="station-detail__value">
-          {station.connected ? "Yes" : "No"}
+          {station.connected ? 'Yes' : 'No'}
         </span>
         <span className="station-detail__value">{station.currency}</span>
         <span className="station-detail__value">
-          {station.free_usage ? "Yes" : "No"}
+          {station.free_usage ? 'Yes' : 'No'}
         </span>
       </div>
     </div>

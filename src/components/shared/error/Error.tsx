@@ -1,6 +1,6 @@
-import styled from "styled-components"
-import React, { ReactElement } from "react"
-import { IErrorProps } from "../../../interfaces/components/shared/IErrorProps"
+import styled from 'styled-components'
+import React, { ReactElement } from 'react'
+import { IErrorProps } from '../../../interfaces/components/shared/IErrorProps'
 
 const Error: React.FC<IErrorProps> = (props: IErrorProps): ReactElement => {
   const { className } = props
@@ -26,7 +26,7 @@ export default styled(Error)`
   align-items: center;
 
   h1 {
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 236px;
     font-weight: 200;
     margin: 0;
@@ -35,7 +35,7 @@ export default styled(Error)`
   }
 
   button {
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     color: #fff;
     text-transform: uppercase;

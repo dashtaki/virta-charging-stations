@@ -1,3 +1,3 @@
 export interface IStationDetailParams {
-  id: string
+    id: string
 }

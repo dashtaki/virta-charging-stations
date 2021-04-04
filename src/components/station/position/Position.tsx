@@ -1,8 +1,8 @@
-import React, { ReactElement, useEffect, useState } from "react"
-import { Map, Marker } from "pigeon-maps"
-import styled from "styled-components"
-import { retrieveGeoLocation } from "../../../helpers/geoLocation"
-import { IPositionProps } from "../../../interfaces/components/station/IPositionProps"
+import React, { ReactElement, useEffect, useState } from 'react'
+import { Map, Marker } from 'pigeon-maps'
+import styled from 'styled-components'
+import { retrieveGeoLocation } from '../../../helpers/geoLocation'
+import { IPositionProps } from '../../../interfaces/components/station/IPositionProps'
 
 const Position: React.FunctionComponent<IPositionProps> = (
   props: IPositionProps
@@ -23,7 +23,7 @@ const Position: React.FunctionComponent<IPositionProps> = (
   }
 
   return (
-    <div className={className + " position__wrapper"}>
+    <div className={className + ' position__wrapper'}>
       {!latitude || !longitude ? (
         <div className="map__no-position-provided">
           There is no position provided!

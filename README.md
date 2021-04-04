@@ -10,6 +10,7 @@ _Note: Currently just get the stations data from a json file locally._
 ###Typescript
 
 I have switched to Typescript and as you can see in `/src` and `/cypress` directories.
+Prettier rules updated regarding the Typescript.
 
 ### GraphQL
 

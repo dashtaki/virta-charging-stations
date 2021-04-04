@@ -1,6 +1,6 @@
-import styled from "styled-components"
-import { ISpinnerProps } from "../../../interfaces/components/shared/ISpinnerProps"
-import React, { ReactElement } from "react"
+import styled from 'styled-components'
+import { ISpinnerProps } from '../../../interfaces/components/shared/ISpinnerProps'
+import React, { ReactElement } from 'react'
 
 const Spinner: React.FC<ISpinnerProps> = (
   props: ISpinnerProps
@@ -21,7 +21,7 @@ export default styled(Spinner)`
   &:after {
     animation: animate2 1.5s ease-in-out infinite;
     clip: rect(0, 80px, 80px, 40px);
-    content: "";
+    content: '';
     border-radius: 50%;
     height: 80px;
     width: 80px;

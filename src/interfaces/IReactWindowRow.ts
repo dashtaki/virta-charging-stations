@@ -1,3 +1,3 @@
 export interface IReactWindowRow {
-  index: number
+    index: number
 }

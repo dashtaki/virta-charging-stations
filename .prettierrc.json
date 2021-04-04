@@ -2,14 +2,14 @@
   "semi": false,
   "overrides": [
     {
-      "files": "*.js",
+      "files": ["*.ts", "*.js", "*.tsx"],
       "options": {
         "semi": false,
         "singleQuote": true
       }
     },
     {
-      "files": ["*.html", "*.js"],
+      "files": ["*.html", "*.ts", "*.js", "+.tsx"],
       "options": {
         "tabWidth": 4
       }

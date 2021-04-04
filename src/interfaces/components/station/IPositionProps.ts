@@ -1,5 +1,5 @@
-import { IStyledComponent } from "../../IStyledComponent"
+import { IStyledComponent } from '../../IStyledComponent'
 
 export interface IPositionProps extends IStyledComponent {
-  position: string
+    position: string
 }

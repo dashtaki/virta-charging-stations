@@ -1,5 +1,5 @@
-import { IStationNameProps } from "../../interfaces/components/station-list/IStationNameProps"
-import React, { ReactElement } from "react"
+import { IStationNameProps } from '../../interfaces/components/station-list/IStationNameProps'
+import React, { ReactElement } from 'react'
 
 const StationName: React.FC<IStationNameProps> = (
   props: IStationNameProps

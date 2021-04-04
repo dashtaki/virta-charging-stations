@@ -1,7 +1,7 @@
-import { IStyledComponent } from "../../IStyledComponent"
-import { IStationDetail } from "../../IStationDetail"
+import { IStyledComponent } from '../../IStyledComponent'
+import { IStationDetail } from '../../IStationDetail'
 
 export interface IStationInfoProps extends IStyledComponent {
-  station: IStationDetail
-  lastConnect: string
+    station: IStationDetail
+    lastConnect: string
 }
