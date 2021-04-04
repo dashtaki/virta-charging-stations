@@ -5,6 +5,47 @@ all charging stations and browse to see the detail about each station.
 
 _Note: Currently just get the stations data from a json file locally._
 
+# Update - According to second part of assignment
+
+###Typescript
+
+I have switched to Typescript and as you can see in `/src` and `/cypress` directories.
+
+### GraphQL
+
+I used GraphQl for fetching data, You can check the queries for fetching `all stations` and `statoin by id` from `src/qraphql/queries/`.
+
+### Performance
+
+Because The API endpoint(in this case `/stations`) for getting all stations returns more than 1800 records
+so it will be a performance issue. That's shy I have used [react-window](https://react-window.now.sh/#/examples/list/fixed-size) for windowing
+the data.
+
+### Test
+
+All the test added/updated as well as new changes in terms of calling API and some new changes in
+UI for station's detail. I also intercept API calls for test to keep consistency and also improve performance.
+
+### Directories structure
+
+Directories structure changed to:
+
+- cypress: contains all `.spec` files, fixtures, helpers and so on.
+- public: All public files like images
+- src
+  - components:
+    - shared: shared component
+    - station: station detail components
+    - station-list: list of all stations components
+  - helpers: helper functions
+  - interfaces
+  - graphql: QraphQL queries
+  - types
+
+### Error Handling
+
+I tried to cover all edge cases and catch graphQl error in components as well. So I have created specific in component for handling errors.
+
 # Get started
 
 ### Clone the repo
@@ -100,11 +141,6 @@ In addition, I check pretty before every commit by add a pre-commit hook. For mo
 Regarding the `S` for `SOLID` I just tried to keep each function(component as a funstion as well) to
 just responsible for a single task. That's why I just created a separate component for every part
 and also keep the simple stupid ;)
-
-### Error Handling
-
-In case of multiple API endpoint I can provide a global error handling. As you can see I just throw the error in case of
-error in fetching data from .json file.
 
 ### Browse-ability and bookmark-ability
 
