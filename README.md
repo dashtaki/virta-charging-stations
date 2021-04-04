@@ -3,12 +3,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Call API to get
 all charging stations and browse to see the detail about each station.
 
-_Note: Currently just get the stations data from a json file locally._
-
 # Update - According to second part of the assignment
 
 ###Typescript
-
 I have switched to Typescript and as you can see in `/src` and `/cypress` directories.
 Prettier rules updated regarding the Typescript.
 
