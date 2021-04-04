@@ -5,7 +5,7 @@ import { GET_STATIONS } from "../../qraphql/queries/getStations"
 import Error from "../shared/error/Error"
 import { useQuery } from "@apollo/react-hooks"
 import { FixedSizeList as List } from "react-window"
-import { IStationsListProps } from "../../interfaces/components/IStationsListProps"
+import { IStationsListProps } from "../../interfaces/components/station-list/IStationsListProps"
 import { IReactWindowRow } from "../../interfaces/IReactWindowRow"
 import { IStation } from "../../interfaces/IStation"
 

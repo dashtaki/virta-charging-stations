@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components"
-import { INotExistStationProps } from "../../../interfaces/components/INotExistStationProps"
+import { INotExistStationProps } from "../../../interfaces/components/station/INotExistStationProps"
 
 const NotExistStation = (props: INotExistStationProps) => {
   const { className } = props

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Map, Marker } from "pigeon-maps"
 import styled from "styled-components"
 import { retrieveGeoLocation } from "../../../helpers/geoLocation"
-import { IPositionProps } from "../../../interfaces/components/IPositionProps"
+import { IPositionProps } from "../../../interfaces/components/station/IPositionProps"
 
 const Position = (props: IPositionProps) => {
   const [longitude, setLongitude] = useState<number>()
