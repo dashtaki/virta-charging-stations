@@ -1,0 +1,22 @@
+{
+  "station_ID": 101,
+  "custom_evse_id": null,
+  "station_type_ID": 113,
+  "location_ID": 101,
+  "seller_ID": 27,
+  "inuse": "2019-02-22T13:35:48.000Z",
+  "connected": 1,
+  "disabled": 0,
+  "available": 0,
+  "types": [],
+  "name": "Endesa",
+  "free_usage": 1,
+  "onetimepayment": 1,
+  "sockets": 5,
+  "maxpower": "10",
+  "selectsocket": 0,
+  "reservable": 1,
+  "currency": "EUR",
+  "error": "Station not available",
+  "status": "inuse"
+}

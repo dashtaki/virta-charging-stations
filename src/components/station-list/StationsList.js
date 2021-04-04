@@ -24,6 +24,7 @@ const StationsList = ({ className }) => {
                 <div className={className}>
                     <h1>Your stations</h1>
                     <List
+                        className="stations-list__wrapper"
                         height={700}
                         itemCount={data.stations.length}
                         itemSize={30}
@@ -42,9 +43,5 @@ export default styled(StationsList)`
 
     h1 {
         font-size: 3.5rem;
-    }
-
-    ul {
-        padding: 0;
     }
 `

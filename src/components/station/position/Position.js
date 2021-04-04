@@ -20,7 +20,7 @@ const Position = ({ className, ...props }) => {
     }
 
     return (
-        <div className={className}>
+        <div className={className + ' position__wrapper'}>
             {!latitude || !longitude ? (
                 <div className="map__no-position-provided">
                     There is no position provided!

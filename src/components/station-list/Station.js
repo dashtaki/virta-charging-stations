@@ -17,13 +17,13 @@ const Station = ({ className, ...props }) => {
     return (
         <>
             {
-                <li
+                <div
                     className={className}
                     onClick={() => showStationDetail(station)}
                 >
                     <StationName name={station.name} />
                     <StationAvailability availability={station.available} />
-                </li>
+                </div>
             }
         </>
     )
