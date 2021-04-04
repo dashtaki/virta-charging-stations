@@ -8,7 +8,8 @@ all charging stations and browse to see the detail about each station.
 ### Typescript
 
 I have switched to Typescript and as you can see in `/src` and `/cypress` directories.
-Prettier rules updated regarding the Typescript.
+
+_Note: Prettier rules updated regarding the Typescript._
 
 ### GraphQL
 
