@@ -19,8 +19,15 @@ I used GraphQl for fetching data, You can check the queries for fetching `all st
 Because The API endpoint(in this case `/stations`) for getting all stations returns more than 1800 records
 so it will be a performance issue. That's shy I have used [react-window](https://react-window.now.sh/#/examples/list/fixed-size) for windowing
 the data.
+Here you can see how performance improved by these images:
+
+Before windowing:
 
 ![Before windowing by React Profiler](https://github.com/dashtaki/virta-charging-stations/blob/master/before-windowing.png)
+
+After windowing:
+
+![After windowing by React Profiler](https://github.com/dashtaki/virta-charging-stations/blob/master/after-windowing.png)
 
 ### Test
 
