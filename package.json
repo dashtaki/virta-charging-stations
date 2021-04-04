@@ -8,6 +8,11 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.1",
+    "@types/jest": "^26.0.22",
+    "@types/node": "^14.14.37",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/styled-components": "^5.1.9",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",
     "apollo-link-rest": "^0.7.3",
@@ -25,6 +30,7 @@
     "react-scripts": "4.0.3",
     "react-window": "^1.8.6",
     "styled-components": "^5.2.1",
+    "typescript": "^4.2.3",
     "web-vitals": "^1.1.0"
   },
   "scripts": {
