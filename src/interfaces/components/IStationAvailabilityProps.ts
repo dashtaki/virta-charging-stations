@@ -1,5 +1,5 @@
 import { IStyledComponent } from "../IStyledComponent"
 
-export interface IStationAvailability extends IStyledComponent {
+export interface IStationAvailabilityProps extends IStyledComponent {
   availability: 0 | 1
 }

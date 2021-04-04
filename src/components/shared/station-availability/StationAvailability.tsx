@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import { IStationAvailability } from "../../../interfaces/components/IStationAvailability"
+import { IStationAvailabilityProps } from "../../../interfaces/components/IStationAvailabilityProps"
 
-const StationAvailability = (props: IStationAvailability) => {
+const StationAvailability = (props: IStationAvailabilityProps) => {
   const { className, availability } = props
   const src = availability ? "../available_icon.png" : "../offline_icon.png"
   const availabilityText = availability ? "Available" : "Offline"
