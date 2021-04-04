@@ -13,7 +13,7 @@ const Station: React.FC<IStationProps> = (
   const { station, className } = props
   const history = useHistory()
 
-  const showStationDetail = (station: IStation) => {
+  const showStationDetail = (station: IStation): void => {
     const state: IStationDetailLocation = {
       lastConnect: station.lastconnect,
       position: station.position,
