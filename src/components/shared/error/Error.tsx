@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import React from "react"
-import { IErrorProps } from "../../../interfaces/components/IErrorProps"
+import { IErrorProps } from "../../../interfaces/components/shared/IErrorProps"
 
 const Error = (props: IErrorProps) => {
   const { className } = props

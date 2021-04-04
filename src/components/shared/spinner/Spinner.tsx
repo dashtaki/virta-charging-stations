@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { ISpinnerProps } from "../../../interfaces/components/ISpinnerProps"
+import { ISpinnerProps } from "../../../interfaces/components/shared/ISpinnerProps"
 
 const Spinner = (props: ISpinnerProps = {}) => {
   const { className } = props

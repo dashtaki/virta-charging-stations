@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { IStationAvailabilityProps } from "../../../interfaces/components/IStationAvailabilityProps"
+import { IStationAvailabilityProps } from "../../../interfaces/components/shared/IStationAvailabilityProps"
 
 const StationAvailability = (props: IStationAvailabilityProps) => {
   const { className, availability } = props
