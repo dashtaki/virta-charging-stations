@@ -1,3 +1,3 @@
-export interface IErrorProps {
-  className: string
-}
+import { IStyledComponent } from "../IStyledComponent"
+
+export interface IErrorProps extends IStyledComponent {}

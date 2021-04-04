@@ -1,0 +1,50 @@
+import styled from "styled-components"
+import { ISpinnerProps } from "../../../interfaces/components/ISpinnerProps"
+
+const Spinner = (props: ISpinnerProps) => {
+  const { className } = props
+  return <div className={className}></div>
+}
+
+export default styled(Spinner)`
+  animation: animate 1.5s linear infinite;
+  clip: rect(0, 80px, 80px, 40px);
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  left: calc(50% - 40px);
+  top: calc(50% - 40px);
+
+  &:after {
+    animation: animate2 1.5s ease-in-out infinite;
+    clip: rect(0, 80px, 80px, 40px);
+    content: "";
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    position: absolute;
+  }
+
+  @keyframes animate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(220deg);
+    }
+  }
+
+  @keyframes animate2 {
+    0% {
+      box-shadow: inset black 0 0 0 17px;
+      transform: rotate(-140deg);
+    }
+    50% {
+      box-shadow: inset black 0 0 0 2px;
+    }
+    100% {
+      box-shadow: inset black 0 0 0 17px;
+      transform: rotate(140deg);
+    }
+  }
+`
