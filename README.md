@@ -18,7 +18,7 @@ I used GraphQl for fetching data, You can check the queries for fetching `all st
 ### Performance
 
 Because The API endpoint(in this case `/stations`) for getting all stations returns more than 1800 records
-so it will be a performance issue. That's shy I have used [react-window](https://react-window.now.sh/#/examples/list/fixed-size) for windowing
+so it will be a performance issue. That's why I have used [react-window](https://react-window.now.sh/#/examples/list/fixed-size) for windowing
 the data.
 Here you can see how performance improved by these images:
 
@@ -153,7 +153,7 @@ In addition, I check pretty before every commit by add a pre-commit hook. For mo
 
 Regarding the `S` for `SOLID` I just tried to keep each function(component as a funstion as well) to
 just responsible for a single task. That's why I just created a separate component for every part
-and also keep the simple stupid ;)
+and also keep it simple stupid.
 
 ### Browse-ability and bookmark-ability
 
