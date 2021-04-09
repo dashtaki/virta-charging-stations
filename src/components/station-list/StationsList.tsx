@@ -17,9 +17,9 @@ const StationsList: React.FC<IStationsListProps> = (
   const { className } = props
 
   const Row = (args: IReactWindowRow) => {
-    const { index } = args
+    const { index, style, isScrolling } = args
     const station: IStation = data.stations[index]
-    return <Station station={station} />
+    return <Station station={station} style={style} scrolling={isScrolling} />
   }
 
   return (
@@ -33,9 +33,10 @@ const StationsList: React.FC<IStationsListProps> = (
           <h1>Your stations</h1>
           <List
             className="stations-list__wrapper"
+            useIsScrolling
             height={700}
             itemCount={data.stations.length}
-            itemSize={30}
+            itemSize={75}
             width={700}
           >
             {Row}

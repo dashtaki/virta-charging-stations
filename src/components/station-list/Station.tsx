@@ -10,7 +10,7 @@ import React, { ReactElement } from 'react'
 const Station: React.FC<IStationProps> = (
   props: IStationProps
 ): ReactElement => {
-  const { station, className } = props
+  const { station, className, style, scrolling } = props
   const history = useHistory()
 
   const showStationDetail = (station: IStation): void => {
@@ -24,9 +24,23 @@ const Station: React.FC<IStationProps> = (
   return (
     <>
       {
-        <div className={className} onClick={() => showStationDetail(station)}>
-          <StationName name={station.name} />
-          <StationAvailability availability={station.available} />
+        <div
+          className={className}
+          style={style}
+          onClick={() => showStationDetail(station)}
+        >
+          {scrolling ? (
+            <img
+              className="station__item--spinner"
+              src="./small-spinner.gif"
+              alt="station item spinner"
+            />
+          ) : (
+            <div className="station__item">
+              <StationName name={station.name} />
+              <StationAvailability availability={station.available} />
+            </div>
+          )}
         </div>
       }
     </>
@@ -34,12 +48,20 @@ const Station: React.FC<IStationProps> = (
 }
 
 export default styled(Station)`
-  background-color: white;
-  padding: 1.3rem 1rem;
-  border-radius: 0.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  cursor: pointer;
+  .station__item {
+    background-color: white;
+    padding: 1.3rem 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+  }
+
+  .station__item--spinner {
+    width: 50px;
+    height: 50px;
+    margin-left: 45%;
+  }
 `
